@@ -1,1 +1,3 @@
-include 'lws'
+#include 'lws'
+class {'jetty-solr':  }
+
