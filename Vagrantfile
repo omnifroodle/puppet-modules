@@ -30,7 +30,7 @@ Vagrant::Config.run do |config|
 
   # Forward a port from the guest to the host, which allows for outside
   # computers to access the VM, whereas host only networking does not.
-  config.vm.forward_port 8983, 8080
+  #config.vm.forward_port 8983, 8080
 
   # Share an additional folder to the guest VM. The first argument is
   # an identifier, the second is the path on the guest to mount the
@@ -98,4 +98,11 @@ Vagrant::Config.run do |config|
   # chef-validator, unless you changed the configuration.
   #
   #   chef.validation_client_name = "ORGNAME-validator"
+
+  config.vm.define :solr1 do |solr1_config|
+    solr1_config.vm.forward_port 8983, 8080
+  end
+  config.vm.define :solr2 do |solr2_config|
+    solr2_config.vm.forward_port 8983, 8081
+  end
 end
