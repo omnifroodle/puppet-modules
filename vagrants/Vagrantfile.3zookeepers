@@ -1,0 +1,39 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant::Config.run do |config|
+
+  config.vm.box_url = "http://tag1consulting.com/files/centos-5.9-x86-64-minimal.box"
+  config.vm.box = "cent59"
+
+  config.vm.define :zk1 do |zk1_config|
+#    zk1_config.vm.network :hostonly, "192.168.5.10"
+  end
+
+  config.vm.define :zk2 do |zk2_config|
+#    zk2_config.vm.network :hostonly, "192.168.5.11"
+  end
+
+  # Enable provisioning with Puppet stand alone.  Puppet manifests
+  # are contained in a directory path relative to this Vagrantfile.
+  # You will need to create the manifests directory and a manifest in
+  # the file base.pp in the manifests_path directory.
+  #
+  # An example Puppet manifest to provision the message of the day:
+  #
+  # # group { "puppet":
+  # #   ensure => "present",
+  # # }
+  # #
+  # # File { owner => 0, group => 0, mode => 0644 }
+  # #
+  # # file { '/etc/motd':
+  # #   content => "Welcome to your Vagrant-built virtual machine!
+  # #               Managed by Puppet.\n"
+  # # }
+  #
+  # config.vm.provision :puppet do |puppet|
+  #   puppet.manifests_path = "manifests"
+  #   puppet.manifest_file  = "base.pp"
+  # end
+end
